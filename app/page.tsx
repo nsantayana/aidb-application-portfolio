@@ -130,11 +130,16 @@ function MarkdownContent({
             </a>
           ),
           pre: ({ children }) => {
-            if (
-              isValidElement(children) &&
-              (children.type === PeerCard || children.type === TeamForward)
-            ) {
-              return <>{children}</>;
+            if (isValidElement<{ children?: unknown }>(children)) {
+              const value = String(children.props.children ?? "").trim();
+
+              if (value.startsWith("THE NEW JOBS AI WILL CREATE")) {
+                return <PeerCard value={value} />;
+              }
+
+              if (value.startsWith("Subject:")) {
+                return <TeamForward value={value} />;
+              }
             }
 
             return <pre>{children}</pre>;
@@ -145,13 +150,12 @@ function MarkdownContent({
             ...props
           }: ComponentPropsWithoutRef<"code">) => {
             const value = String(children).trim();
-            const isBlock = className?.startsWith("language-");
 
-            if (isBlock && value.startsWith("THE NEW JOBS AI WILL CREATE")) {
+            if (value.startsWith("THE NEW JOBS AI WILL CREATE")) {
               return <PeerCard value={value} />;
             }
 
-            if (isBlock && value.startsWith("Subject:")) {
+            if (value.startsWith("Subject:")) {
               return <TeamForward value={value} />;
             }
 
@@ -191,7 +195,9 @@ export default async function Home() {
       <section id="intro" className="page-section intro-section">
         <div className="prose-shell">
           <p className="eyebrow">Application portfolio</p>
-          <h1>AIDB Growth Engineer — Pre-Work</h1>
+          <h1>
+            AIDB Growth Engineer <span aria-hidden="true">—</span> Pre-Work
+          </h1>
           <p className="subhead">Two shipped artifacts referenced from my application.</p>
           <p>
             Most applicants describe what they&apos;d build. This is the build.

@@ -24,6 +24,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.dev-server*.log
+.static-server*.log
+desktop.png
+mobile.png
+*-mobile.png
+mobile-cdp.png
+lighthouse*.json
 
 # local env files
 .env*

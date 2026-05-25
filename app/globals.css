@@ -110,12 +110,13 @@ h3 {
   font-weight: 650;
   line-height: 1.12;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 h1 {
-  max-width: 12ch;
+  max-width: 100%;
   margin: 0;
-  font-size: clamp(3rem, 10vw, 5.35rem);
+  font-size: 2.35rem;
 }
 
 .subhead {
@@ -123,7 +124,7 @@ h1 {
   margin: 1.35rem 0 1.2rem;
   color: var(--accent);
   font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(1.35rem, 5vw, 2rem);
+  font-size: 1.45rem;
   line-height: 1.25;
 }
 
@@ -135,13 +136,13 @@ h1 {
 .prose-content h1 {
   max-width: none;
   margin: 0 0 1.6rem;
-  font-size: clamp(2rem, 7vw, 3rem);
+  font-size: 1.7rem;
 }
 
 .prose-content h2 {
   margin: 3rem 0 1rem;
   color: var(--accent);
-  font-size: clamp(1.55rem, 5vw, 2.1rem);
+  font-size: 1.35rem;
 }
 
 .prose-content h3 {
@@ -244,7 +245,7 @@ h1 {
   max-width: 13ch;
   margin: 0.4rem 0 1.5rem;
   color: var(--foreground);
-  font-size: clamp(2rem, 8vw, 3.2rem);
+  font-size: 2rem;
 }
 
 .peer-card-kicker,
@@ -276,7 +277,7 @@ h1 {
 .peer-card-questions strong {
   display: block;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: clamp(1rem, 3vw, 1.22rem);
+  font-size: 1rem;
   line-height: 1.45;
 }
 
@@ -359,6 +360,31 @@ h1 {
 
   .page-section {
     padding-block: 6rem;
+  }
+
+  h1 {
+    max-width: 12ch;
+    font-size: 5.2rem;
+  }
+
+  .subhead {
+    font-size: 1.9rem;
+  }
+
+  .prose-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .prose-content h2 {
+    font-size: 2rem;
+  }
+
+  .peer-card h3 {
+    font-size: 3.1rem;
+  }
+
+  .peer-card-questions strong {
+    font-size: 1.18rem;
   }
 
   .peer-card-questions {
