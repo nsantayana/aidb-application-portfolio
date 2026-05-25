@@ -72,7 +72,7 @@ export default async function Home() {
         <div className="prose-shell">
           <p className="eyebrow">Application portfolio</p>
           <h1>
-            AIDB Growth Engineer <span aria-hidden="true">—</span> Pre-Work
+            AIDB Growth Engineer: Pre-Work
           </h1>
           <p className="subhead">
             The artifacts below are referenced from my application. The rubric is
@@ -106,10 +106,10 @@ export default async function Home() {
       <section id="packaging" className="page-section">
         <div className="prose-shell">
           <div className="prose-content diagnostic-intro">
-            <h1>Packaging Prototype — The Seven Premiums Self-Diagnostic</h1>
+            <h1>Packaging Prototype: The Seven Premiums Self-Diagnostic</h1>
             <p>
               An example of what a growth-engineering artifact for this episode
-              actually looks like — a working interactive tool, not a static
+              actually looks like. A working interactive tool, not a static
               card. Built in a few hours.
             </p>
             <p>

@@ -2,7 +2,7 @@
 
 **Author:** Noel Santayana
 **Built for:** AIDB Growth Engineer application (May 2026)
-**Status:** v0 — applied to one episode for this submission; ready to apply at scale.
+**Status:** v0, applied to one episode for this submission. Ready to apply at scale.
 
 ---
 
@@ -26,16 +26,16 @@ Each scored 0–3. Max raw score: 21. Packaging bar: ≥15. Below 12: skip or re
 | 6 | Self-Interest Payoff | Does the receiver get something useful for their own role? |
 | 7 | Evergreen vs News | Will this matter in 6 months, or spike then die? |
 
-## Scoring receipt — "The New Jobs AI Will Create" (NLW, May 11, 2026)
+## Scoring receipt: "The New Jobs AI Will Create" (NLW, May 11, 2026)
 
 | Dimension | Score | Why |
 |---|---|---|
 | Identity Activation | 3 | Hands operators a label they want to claim publicly: "I run a human-premium service," "I'm building continuous-care infrastructure." Identity is the strongest organic-share driver in AIDB's audience. |
-| Counter-Narrative Density | 3 | Direct rebuttal of the dominant "AGI eats everything" frame. The capability-vs-service-design distinction is the rare reframe — it goes against what most listeners walked in believing. |
+| Counter-Narrative Density | 3 | Direct rebuttal of the dominant "AGI eats everything" frame. The capability-vs-service-design distinction is the rare reframe. It goes against what most listeners walked in believing. |
 | Single Archetype Fit | 2 | Strong fit for two archetypes: service-business operators and clinical/ops leaders. Diffuses for pure-tech audiences. Loses one point for not having a single sharpest receiver. |
 | Quotable Crystallization | 3 | "Can AI do the task" vs "Does AI-only delivery satisfy the demand" is a 12-word reframe. Screenshot-ready. The seven-category human-premium list is also list-quotable. |
 | Defensibility Tool | 3 | The seven categories are a vocabulary list for every operator about to face AI pricing pressure. Most listeners will forward this to a peer who is currently arguing themselves into folding. |
-| Self-Interest Payoff | 3 | Receiver walks away with a service-redesign checklist for their own work. Not abstract intellectual interest — applied. |
+| Self-Interest Payoff | 3 | Receiver walks away with a service-redesign checklist for their own work. Not abstract intellectual interest. Applied. |
 | Evergreen vs News | 3 | Framework, not news. The argument compounds because the underlying economic logic doesn't change with model releases. |
 | **Total** | **20/21** | Top-decile share leverage. Package hard. |
 
@@ -52,5 +52,5 @@ Each scored 0–3. Max raw score: 21. Packaging bar: ≥15. Below 12: skip or re
 
 1. What share-signal does AIDB already capture today (platform-native vs UTM-tagged links vs surveys)?
 2. Is there an existing "Champion" cohort whose forwarding patterns we can analyze as a leading indicator?
-3. What's the current ratio of episode types (news, framework, interview, monologue)? The rubric will probably score these unequally — useful editorial signal either way.
+3. What's the current ratio of episode types (news, framework, interview, monologue)? The rubric will probably score these unequally, which is useful editorial signal either way.
 4. What does the YouTube channel's view-distribution look like by episode type, and is the cadence/format mismatch an active conversation internally? Sketched in more detail in the [Channel](#channel) section below.

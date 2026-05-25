@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AIDB Growth Engineer — Pre-Work",
+  title: "AIDB Growth Engineer: Pre-Work",
   description:
     "Noel Santayana's AIDB Growth Engineer application pre-work: an episode share-leverage rubric and packaging prototype.",
 };
