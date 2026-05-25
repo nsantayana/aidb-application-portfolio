@@ -65,7 +65,7 @@ export default async function Home() {
         <a href="#intro">Intro</a>
         <a href="#rubric">Rubric</a>
         <a href="#packaging">Packaging</a>
-        <a href="#open-question">Open Question</a>
+        <a href="#channel">Channel</a>
       </nav>
 
       <section id="intro" className="page-section intro-section">
@@ -77,15 +77,15 @@ export default async function Home() {
           <p className="subhead">
             The artifacts below are referenced from my application. The rubric is
             the selection layer. The self-diagnostic is the kind of asset that
-            actually spreads. The open question is the kind of cross-platform
-            observation I would want to validate with internal data on day one.
+            actually spreads. The channel observation is the kind of cross-platform
+            read I would want to validate with internal data on day one.
           </p>
           <p>
             Most applicants describe what they&apos;d build. This is the build.
             The rubric is the selection layer that decides which AIDB episodes
             are worth packaging. The packaging prototype shows what shipping
-            against one looks like. The open question is what I noticed about
-            distribution while putting this application together.
+            against one looks like. The channel observation is what I noticed
+            about distribution while putting this application together.
           </p>
           <p className="attribution">Author: Noel Santayana · Built May 2026</p>
         </div>

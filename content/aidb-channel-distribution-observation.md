@@ -1,4 +1,4 @@
-# AIDB Channel Distribution: An Open Question (v0)
+# AIDB Channel Distribution: A Day-Zero Observation
 
 **Author:** Noel Santayana
 **Built for:** AIDB Growth Engineer application (May 2026)

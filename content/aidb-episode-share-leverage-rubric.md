@@ -53,4 +53,4 @@ Each scored 0–3. Max raw score: 21. Packaging bar: ≥15. Below 12: skip or re
 1. What share-signal does AIDB already capture today (platform-native vs UTM-tagged links vs surveys)?
 2. Is there an existing "Champion" cohort whose forwarding patterns we can analyze as a leading indicator?
 3. What's the current ratio of episode types (news, framework, interview, monologue)? The rubric will probably score these unequally — useful editorial signal either way.
-4. What does the YouTube channel's view-distribution look like by episode type, and is the cadence/format mismatch an active conversation internally? Sketched in more detail in the [Open Question](#open-question) section below.
+4. What does the YouTube channel's view-distribution look like by episode type, and is the cadence/format mismatch an active conversation internally? Sketched in more detail in the [Channel](#channel) section below.
