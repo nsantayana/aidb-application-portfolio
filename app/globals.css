@@ -345,6 +345,223 @@ h1 {
   padding-left: 1.3rem;
 }
 
+.diagnostic-intro {
+  margin-bottom: 2rem;
+}
+
+.diagnostic-form,
+.diagnostic-result {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.diagnostic-progress {
+  display: flex;
+  justify-content: flex-end;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.question-card {
+  min-width: 0;
+  margin: 0;
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 72%, var(--background));
+}
+
+.question-card legend {
+  display: grid;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0;
+  color: var(--foreground);
+  line-height: 1.55;
+}
+
+.question-card legend span {
+  color: var(--accent);
+  font-weight: 750;
+}
+
+.option-grid {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.option-grid label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  padding: 0.68rem 0.75rem;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.option-grid input {
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  accent-color: var(--accent);
+  flex: 0 0 auto;
+}
+
+.option-grid span {
+  line-height: 1.35;
+}
+
+.diagnostic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.7rem;
+  padding: 0.72rem 1rem;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 750;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.diagnostic-button.primary {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.diagnostic-button:disabled {
+  border-color: var(--line);
+  background: #e9e1d5;
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.submit-result {
+  width: 100%;
+}
+
+.result-card,
+.share-panel {
+  padding: 1.15rem;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: 0 18px 42px rgba(58, 45, 30, 0.08);
+}
+
+.result-kicker {
+  margin: 0 0 0.4rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.result-card h3 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 4rem;
+}
+
+.result-card h3 span {
+  color: var(--muted);
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.65rem;
+}
+
+.result-band {
+  margin: 0.4rem 0 0.9rem;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.score-bars {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1.7rem 0;
+}
+
+.score-row {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.score-row-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.score-row-label span {
+  font-weight: 700;
+}
+
+.score-row-label strong {
+  color: var(--accent);
+}
+
+.score-track {
+  height: 0.58rem;
+  overflow: hidden;
+  background: #e8dfd2;
+}
+
+.score-track span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.result-card blockquote {
+  margin: 1.75rem 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  color: var(--foreground);
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.result-card cite {
+  display: block;
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.share-panel h3 {
+  margin: 0 0 0.9rem;
+  color: var(--accent);
+}
+
+.share-actions {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.retake-button {
+  margin-top: 1rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
 .site-footer {
   padding: 2.5rem 1.25rem 3rem;
   border-top: 1px solid var(--line);
@@ -389,6 +606,20 @@ h1 {
 
   .peer-card-questions {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .option-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .question-card,
+  .result-card,
+  .share-panel {
+    padding: 1.35rem;
+  }
+
+  .share-actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
