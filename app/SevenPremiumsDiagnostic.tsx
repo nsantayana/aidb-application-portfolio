@@ -135,6 +135,7 @@ export default function SevenPremiumsDiagnostic() {
   const [answers, setAnswers] = useState<Answers>({});
   const [showResult, setShowResult] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [attemptedSubmit, setAttemptedSubmit] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -173,6 +174,16 @@ export default function SevenPremiumsDiagnostic() {
     setAnswers((current) => ({ ...current, [key]: value }));
   }
 
+  function requestResult() {
+    if (!isComplete) {
+      setAttemptedSubmit(true);
+      return;
+    }
+
+    setShowResult(true);
+    window.history.replaceState(null, "", buildResultUrl(answers));
+  }
+
   async function copyResultLink() {
     await navigator.clipboard.writeText(resultUrl);
     setCopied(true);
@@ -185,6 +196,7 @@ export default function SevenPremiumsDiagnostic() {
     setAnswers({});
     setShowResult(false);
     setCopied(false);
+    setAttemptedSubmit(false);
   }
 
   if (showResult) {
@@ -263,22 +275,35 @@ export default function SevenPremiumsDiagnostic() {
       className="diagnostic-form"
       onSubmit={(event) => {
         event.preventDefault();
-        if (isComplete) {
-          setShowResult(true);
-          window.history.replaceState(null, "", buildResultUrl(answers));
-        }
+        requestResult();
       }}
     >
-      <div className="diagnostic-progress">
+      <div className="diagnostic-progress" id="diagnostic-progress">
         <span>{answeredCount} of 7 answered</span>
       </div>
 
       {categories.map((category, index) => (
-        <fieldset className="question-card" key={category.key}>
-          <legend>
-            <span>{index + 1}. {category.name}</span>
-            {category.question}
+        <fieldset
+          aria-describedby={`diagnostic-progress ${
+            attemptedSubmit && typeof answers[category.key] !== "number"
+              ? `missing-${category.key}`
+              : ""
+          }`}
+          aria-invalid={
+            attemptedSubmit && typeof answers[category.key] !== "number"
+              ? "true"
+              : undefined
+          }
+          className="question-card"
+          key={category.key}
+        >
+          <legend className="sr-only" id={`question-${category.key}`}>
+            {index + 1}. {category.name}. {category.question}
           </legend>
+          <div className="question-prompt" aria-hidden="true">
+            <span>{index + 1}. {category.name}</span>
+            <p>{category.question}</p>
+          </div>
 
           <div className="option-grid">
             {options.map((option) => (
@@ -287,6 +312,7 @@ export default function SevenPremiumsDiagnostic() {
                   checked={answers[category.key] === option.value}
                   name={category.key}
                   onChange={() => setAnswer(category.key, option.value)}
+                  required
                   type="radio"
                   value={option.value}
                 />
@@ -294,12 +320,38 @@ export default function SevenPremiumsDiagnostic() {
               </label>
             ))}
           </div>
+          {attemptedSubmit && typeof answers[category.key] !== "number" ? (
+            <p className="field-required" id={`missing-${category.key}`}>
+              Required before results.
+            </p>
+          ) : null}
         </fieldset>
       ))}
 
-      <button className="diagnostic-button primary submit-result" disabled={!isComplete} type="submit">
-        See my result
-      </button>
+      <div
+        className="submit-area"
+        onPointerDown={() => {
+          if (!isComplete) {
+            setAttemptedSubmit(true);
+          }
+        }}
+      >
+        {attemptedSubmit && !isComplete ? (
+          <p className="submit-guidance" id="diagnostic-required-message" role="status">
+            Answer all 7 questions to see your result.
+          </p>
+        ) : null}
+        <button
+          aria-describedby={
+            attemptedSubmit && !isComplete ? "diagnostic-required-message" : undefined
+          }
+          className="diagnostic-button primary submit-result"
+          disabled={!isComplete}
+          type="submit"
+        >
+          See my result
+        </button>
+      </div>
     </form>
   );
 }
