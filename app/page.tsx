@@ -121,7 +121,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="open-question" className="page-section">
+      <section id="channel" className="page-section">
         <div className="prose-shell">
           <MarkdownContent>{channelMarkdown}</MarkdownContent>
         </div>
