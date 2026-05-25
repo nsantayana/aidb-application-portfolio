@@ -53,6 +53,7 @@ function MarkdownContent({
 export default async function Home() {
   const rubricMarkdown = await readContent("aidb-episode-share-leverage-rubric.md");
   const rubric = splitScoringReceipt(rubricMarkdown);
+  const channelMarkdown = await readContent("aidb-channel-distribution-observation.md");
 
   return (
     <main>
@@ -64,6 +65,7 @@ export default async function Home() {
         <a href="#intro">Intro</a>
         <a href="#rubric">Rubric</a>
         <a href="#packaging">Packaging</a>
+        <a href="#open-question">Open Question</a>
       </nav>
 
       <section id="intro" className="page-section intro-section">
@@ -75,14 +77,15 @@ export default async function Home() {
           <p className="subhead">
             The artifacts below are referenced from my application. The rubric is
             the selection layer. The self-diagnostic is the kind of asset that
-            actually spreads — a working interactive tool, not a description of
-            one.
+            actually spreads. The open question is the kind of cross-platform
+            observation I would want to validate with internal data on day one.
           </p>
           <p>
             Most applicants describe what they&apos;d build. This is the build.
-            The rubric below is the selection layer that decides which AIDB
-            episodes are worth packaging. The packaging prototype shows what
-            shipping against one looks like.
+            The rubric is the selection layer that decides which AIDB episodes
+            are worth packaging. The packaging prototype shows what shipping
+            against one looks like. The open question is what I noticed about
+            distribution while putting this application together.
           </p>
           <p className="attribution">Author: Noel Santayana · Built May 2026</p>
         </div>
@@ -115,6 +118,12 @@ export default async function Home() {
             </p>
           </div>
           <SevenPremiumsDiagnostic />
+        </div>
+      </section>
+
+      <section id="open-question" className="page-section">
+        <div className="prose-shell">
+          <MarkdownContent>{channelMarkdown}</MarkdownContent>
         </div>
       </section>
 
