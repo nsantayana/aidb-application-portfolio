@@ -1,8 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { isValidElement, type ComponentPropsWithoutRef } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import SevenPremiumsDiagnostic from "./SevenPremiumsDiagnostic";
 
 const contentDirectory = path.join(process.cwd(), "content");
 
@@ -25,93 +25,6 @@ function splitScoringReceipt(markdown: string) {
   };
 }
 
-function PeerCard({ value }: { value: string }) {
-  const lines = value.trim().split("\n");
-
-  return (
-    <figure className="peer-card my-10">
-      <p className="peer-card-kicker">{lines[1]}</p>
-      <h3>{lines[0]}</h3>
-      <div className="peer-card-questions">
-        <div>
-          <span>The wrong question:</span>
-          <strong>&quot;Can AI do the task?&quot;</strong>
-        </div>
-        <div>
-          <span>The right question:</span>
-          <strong>&quot;Does AI-only delivery satisfy the demand?&quot;</strong>
-        </div>
-      </div>
-      <div className="peer-card-list">
-        <span>Seven things AI cannot underprice:</span>
-        <p>Relationship · Embodied Presence · Trust</p>
-        <p>Accountability · Translation · Behavior Change · Provenance</p>
-      </div>
-      <figcaption>
-        If your work delivers two or more, your premium is real.
-        <br />
-        If your work delivers none, redesign or get repriced.
-      </figcaption>
-      <a href="https://youtu.be/WhAAKxPlMhw">Listen → episode link</a>
-    </figure>
-  );
-}
-
-function TeamForward({ value }: { value: string }) {
-  const subject = value.match(/^Subject: (.*)$/m)?.[1] ?? "";
-
-  return (
-    <div className="email-mockup my-10">
-      <div className="email-header">
-        <p>
-          <span>From</span>
-          Noel Santayana
-        </p>
-        <p>
-          <span>Subject</span>
-          {subject}
-        </p>
-      </div>
-      <div className="email-body">
-        <p>Team —</p>
-        <p>
-          I&apos;d like everyone to listen to this before our offsite. NLW makes
-          the most useful argument I&apos;ve heard for what our work becomes as
-          AI does more of it.
-        </p>
-        <p>The short version:</p>
-        <ul>
-          <li>
-            AI does not shrink demand. It expands it through six elasticities:
-            price, access, complexity, continuity, personalization, and
-            relational.
-          </li>
-          <li>
-            Where capacity opens up, new roles emerge: Navigators, Continuous
-            Support Workers, AI-Augmented Service Operators, Data & Operations
-            Specialists, QA & Safety, Escalation Specialists.
-          </li>
-          <li>
-            The human premium isn&apos;t going away. It&apos;s going up. In seven
-            specific categories: relationship, embodied presence, trust,
-            accountability, translation, behavior change, provenance.
-          </li>
-        </ul>
-        <p>I want us to come ready to discuss two questions:</p>
-        <ol>
-          <li>Where in our current work are we underpricing the human premium?</li>
-          <li>Where are we still selling things AI can do for free?</li>
-        </ol>
-        <p>
-          Episode: <a href="https://youtu.be/WhAAKxPlMhw">link</a>
-          <br />
-          Time: ~30 min
-        </p>
-      </div>
-    </div>
-  );
-}
-
 function MarkdownContent({
   children,
   className = "",
@@ -129,42 +42,6 @@ function MarkdownContent({
               {children}
             </a>
           ),
-          pre: ({ children }) => {
-            if (isValidElement<{ children?: unknown }>(children)) {
-              const value = String(children.props.children ?? "").trim();
-
-              if (value.startsWith("THE NEW JOBS AI WILL CREATE")) {
-                return <PeerCard value={value} />;
-              }
-
-              if (value.startsWith("Subject:")) {
-                return <TeamForward value={value} />;
-              }
-            }
-
-            return <pre>{children}</pre>;
-          },
-          code: ({
-            children,
-            className,
-            ...props
-          }: ComponentPropsWithoutRef<"code">) => {
-            const value = String(children).trim();
-
-            if (value.startsWith("THE NEW JOBS AI WILL CREATE")) {
-              return <PeerCard value={value} />;
-            }
-
-            if (value.startsWith("Subject:")) {
-              return <TeamForward value={value} />;
-            }
-
-            return (
-              <code className={className} {...props}>
-                {children}
-              </code>
-            );
-          },
         }}
       >
         {children}
@@ -174,10 +51,7 @@ function MarkdownContent({
 }
 
 export default async function Home() {
-  const [rubricMarkdown, packagingMarkdown] = await Promise.all([
-    readContent("aidb-episode-share-leverage-rubric.md"),
-    readContent("aidb-new-jobs-packaging-prototype.md"),
-  ]);
+  const rubricMarkdown = await readContent("aidb-episode-share-leverage-rubric.md");
   const rubric = splitScoringReceipt(rubricMarkdown);
 
   return (
@@ -198,7 +72,12 @@ export default async function Home() {
           <h1>
             AIDB Growth Engineer <span aria-hidden="true">—</span> Pre-Work
           </h1>
-          <p className="subhead">Two shipped artifacts referenced from my application.</p>
+          <p className="subhead">
+            The artifacts below are referenced from my application. The rubric is
+            the selection layer. The self-diagnostic is the kind of asset that
+            actually spreads — a working interactive tool, not a description of
+            one.
+          </p>
           <p>
             Most applicants describe what they&apos;d build. This is the build.
             The rubric below is the selection layer that decides which AIDB
@@ -223,7 +102,19 @@ export default async function Home() {
 
       <section id="packaging" className="page-section">
         <div className="prose-shell">
-          <MarkdownContent>{packagingMarkdown}</MarkdownContent>
+          <div className="prose-content diagnostic-intro">
+            <h1>Packaging Prototype — The Seven Premiums Self-Diagnostic</h1>
+            <p>
+              An example of what a growth-engineering artifact for this episode
+              actually looks like — a working interactive tool, not a static
+              card. Built in a few hours.
+            </p>
+            <p>
+              Answer 7 questions to see where your service stands against the
+              seven categories of human premium AI cannot underprice.
+            </p>
+          </div>
+          <SevenPremiumsDiagnostic />
         </div>
       </section>
 
