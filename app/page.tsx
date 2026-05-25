@@ -128,8 +128,7 @@ export default async function Home() {
       </section>
 
       <footer className="site-footer">
-        Built for the AIDB Growth Engineer application · May 2026 ·{" "}
-        <a href="#">LinkedIn TODO</a>
+        Built for the AIDB Growth Engineer application · May 2026
       </footer>
     </main>
   );
